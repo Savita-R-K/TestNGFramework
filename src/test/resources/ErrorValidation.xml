@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="RerunFailedTest" verbose="1">
+    <listeners>
+        <listener class-name="testComponents.Listeners"/>
+    </listeners>
+    <test name="PlaceOrder">
+        <classes>
+            <class name="tests.PlaceOrderTestRerunFailedTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="DataProviderAndMapsAndJSON" verbose="1">
+    <groups>
+        <!--runs only smoke tests among all tests-->
+        <run>
+            <include name="dataProvider"/>
+        </run>
+    </groups>
+    <test name="DataProvider" thread-count="5">
+        <classes>
+            <class name="tests.DataProviderTest"/>
+            <class name="tests.HashMapAsDataProviderTest"/>
+            <class name="tests.JSONAsDataProvider"/>
+        </classes>
+    </test>
+</suite>
