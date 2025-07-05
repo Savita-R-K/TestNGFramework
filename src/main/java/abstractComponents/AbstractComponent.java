@@ -1,6 +1,5 @@
 package abstractComponents;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,11 +18,11 @@ public class AbstractComponent{
     }
 
     public void waitForTheElementToAppear(WebElement ele){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(ele));
     }
     public void waitForTheElementToDisappear(WebElement ele){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOf(ele));
     }
     public void jsClick(WebElement ele){

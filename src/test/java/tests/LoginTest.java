@@ -9,7 +9,7 @@ import testComponents.BaseTest;
 public class LoginTest extends BaseTest {
 
     @Test(groups = {"Smoke"})
-    public void invalidLogin(){
+    public void invalidLogin() throws InterruptedException {
         String username = "savitaravindra57@gmail.com";
         String password = "Pass123";
 
@@ -17,17 +17,19 @@ public class LoginTest extends BaseTest {
         //login using username and password and navigate to product page
         ProductPage productPage = landingPage.login(username, password);
 
+//        Thread.sleep(3000);
         Assert.assertEquals(productPage.getToastMessage(),"Incorrect email or password.");
 
     }
     @Test
-    public void validLogin() {
+    public void validLogin() throws InterruptedException {
         String username = "savitaravindra57@gmail.com";
         String password = "Pass@123";
 
         //login using username and password and navigate to product page
         ProductPage productPage = landingPage.login(username, password);
 
+        Thread.sleep(1000);
         //add product to cart, verify alert
         Assert.assertEquals(productPage.getLoginMessage(),"Login Successfully");
 

@@ -1,10 +1,12 @@
 package testComponents;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -32,9 +34,13 @@ public class BaseTest {
         }
 
         String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
-        if (browserName.equals("chrome")) {
-            driver = new ChromeDriver();
-        } else if (browserName.equals("edge")) {
+        if (browserName.contains("chrome")) {
+            ChromeOptions options=new ChromeOptions();
+            if(browserName.contains("headless")){
+                options.addArguments("--headless=new");
+            }
+            driver = new ChromeDriver(options);
+        } else if (browserName.equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
         }
 
@@ -44,11 +50,10 @@ public class BaseTest {
     }
 
     @BeforeMethod(alwaysRun = true)
-    public LandingPage launchApplication() {
+    public void launchApplication() {
         driver = initDriver();
         landingPage=new LandingPage(driver);
-        landingPage.goTo();
-        return landingPage;
+        landingPage.goTo(prop);
     }
 
     @AfterMethod(alwaysRun = true)

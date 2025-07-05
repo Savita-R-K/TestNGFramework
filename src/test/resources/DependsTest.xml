@@ -1,12 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <!--        parallel="methods"-->
-<suite  name="ParallelLoginAndDepends" parallel="methods" verbose="1">
-
-    <test name="Login" thread-count="5">
-        <classes>
-            <class name="tests.LoginTest"/>
-        </classes>
-    </test>
+<suite  name="DependsTest" verbose="1">
+    <listeners>
+        <listener class-name="testComponents.Listeners"/>
+    </listeners>
 
 <!--    //Thread count allows to give the count to suite tag for parallel variable -->
 <!--    if parallel=method in suite, thread count is 2 in test , then it runs 2 methods at a time from the tests given-->

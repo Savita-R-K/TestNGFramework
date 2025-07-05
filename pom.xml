@@ -27,7 +27,7 @@
                             <version>3.5.3</version>
                             <configuration>
                                 <suiteXmlFiles>
-                                    <suiteXmlFile>DataProvider.xml</suiteXmlFile>
+                                    <suiteXmlFile>src\test\resources\DataProvider.xml</suiteXmlFile>
                                 </suiteXmlFiles>
                             </configuration>
                         </plugin>
@@ -46,7 +46,7 @@
                             <version>3.5.3</version>
                             <configuration>
                                 <suiteXmlFiles>
-                                    <suiteXmlFile>ErrorValidation.xml</suiteXmlFile>
+                                    <suiteXmlFile>src/test/resources/ErrorValidation.xml</suiteXmlFile>
                                 </suiteXmlFiles>
                             </configuration>
                         </plugin>
@@ -55,7 +55,7 @@
             </build>
         </profile>
         <profile>
-            <id>ParallelLoginAndDepends</id>
+            <id>DependsTest</id>
             <build>
                 <pluginManagement>
                     <plugins>
@@ -65,7 +65,7 @@
                             <version>3.5.3</version>
                             <configuration>
                                 <suiteXmlFiles>
-                                    <suiteXmlFile>ParallelLoginAndDepends.xml</suiteXmlFile>
+                                    <suiteXmlFile>src/test/resources/DependsTest.xml</suiteXmlFile>
                                 </suiteXmlFiles>
                             </configuration>
                         </plugin>
@@ -84,7 +84,7 @@
                             <version>3.5.3</version>
                             <configuration>
                                 <suiteXmlFiles>
-                                    <suiteXmlFile>RerunFileWithListener.xml</suiteXmlFile>
+                                    <suiteXmlFile>src/test/resources/RerunFileWithListener.xml</suiteXmlFile>
                                 </suiteXmlFiles>
                             </configuration>
                         </plugin>

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Properties;
+
 public class LandingPage extends AbstractComponent {
 
     @FindBy(id="userEmail")
@@ -29,7 +31,11 @@ public class LandingPage extends AbstractComponent {
         return new ProductPage(driver);
     }
 
-    public void goTo() {
-        driver.get(System.getProperty("url"));
+    public void goTo(Properties prop) {
+        String url = System.getProperty("url");
+        if (url == null || url.isEmpty()) {
+            url=prop.getProperty("url");
+        }
+        driver.get(url);
     }
 }
