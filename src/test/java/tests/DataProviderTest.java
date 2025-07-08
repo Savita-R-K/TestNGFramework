@@ -8,8 +8,6 @@ import testComponents.BaseTest;
 
 public class DataProviderTest extends BaseTest{
 
-    String url = "https://rahulshettyacademy.com/client/";
-
     @Test(dataProvider = "getData",groups = "dataProvider")
     public void placeOrderAndVerifyHistory(String username,String password,String productName) throws InterruptedException {
         String countryName = "India";

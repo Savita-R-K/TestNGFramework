@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,7 +23,8 @@ public class BaseTest {
     Properties prop;
     public LandingPage landingPage ;
 
-    public WebDriver initDriver() {
+    @BeforeMethod(alwaysRun = true)
+    public void initDriver() {
 
         prop = new Properties();
         try {
@@ -32,24 +34,25 @@ public class BaseTest {
         }
 
         String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
-        if (browserName.equals("chrome")) {
-            driver = new ChromeDriver();
-        } else if (browserName.equals("edge")) {
+        if (browserName.contains("chrome")) {
+            ChromeOptions options=new ChromeOptions();
+            if(browserName.contains("headless")){
+                options.addArguments("--headless=new");
+            }
+            driver = new ChromeDriver(options);
+        } else if (browserName.equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
         }
-
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        return driver;
+        landingPage=new LandingPage(driver);
+        landingPage.goTo(prop);
     }
 
-    @BeforeMethod(alwaysRun = true)
-    public LandingPage launchApplication() {
-        driver = initDriver();
-        landingPage=new LandingPage(driver);
-        landingPage.goTo();
-        return landingPage;
+    public String getProp(String key){
+        return prop.getProperty(key);
     }
+
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {

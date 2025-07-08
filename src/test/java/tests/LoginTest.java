@@ -8,26 +8,20 @@ import testComponents.BaseTest;
 
 public class LoginTest extends BaseTest {
 
-    @Test(groups = {"Smoke"})
-    public void invalidLogin(){
-        String username = "savitaravindra57@gmail.com";
-        String password = "Pass123";
-
+    @Test
+    public void invalidLogin() {
 
         //login using username and password and navigate to product page
-        ProductPage productPage = landingPage.login(username, password);
+        ProductPage productPage = landingPage.login(getProp("username"), "IncorrectPassword");
 
         Assert.assertEquals(productPage.getToastMessage(),"Incorrect email or password.");
 
     }
     @Test
     public void validLogin() {
-        String username = "savitaravindra57@gmail.com";
-        String password = "Pass@123";
 
         //login using username and password and navigate to product page
-        ProductPage productPage = landingPage.login(username, password);
-
+        ProductPage productPage = landingPage.login(getProp("username"), getProp("password"));
         //add product to cart, verify alert
         Assert.assertEquals(productPage.getLoginMessage(),"Login Successfully");
 

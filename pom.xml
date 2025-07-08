@@ -27,7 +27,26 @@
                             <version>3.5.3</version>
                             <configuration>
                                 <suiteXmlFiles>
-                                    <suiteXmlFile>DataProvider.xml</suiteXmlFile>
+                                    <suiteXmlFile>src\test\resources\DataProvider.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>DependsTest</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.5.3</version>
+                            <configuration>
+                                <suiteXmlFiles>
+                                    <suiteXmlFile>src/test/resources/DependsTest.xml</suiteXmlFile>
                                 </suiteXmlFiles>
                             </configuration>
                         </plugin>
@@ -46,26 +65,7 @@
                             <version>3.5.3</version>
                             <configuration>
                                 <suiteXmlFiles>
-                                    <suiteXmlFile>ErrorValidation.xml</suiteXmlFile>
-                                </suiteXmlFiles>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-            </build>
-        </profile>
-        <profile>
-            <id>ParallelLoginAndDepends</id>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.5.3</version>
-                            <configuration>
-                                <suiteXmlFiles>
-                                    <suiteXmlFile>ParallelLoginAndDepends.xml</suiteXmlFile>
+                                    <suiteXmlFile>src/test/resources/ErrorValidation.xml</suiteXmlFile>
                                 </suiteXmlFiles>
                             </configuration>
                         </plugin>
@@ -84,7 +84,26 @@
                             <version>3.5.3</version>
                             <configuration>
                                 <suiteXmlFiles>
-                                    <suiteXmlFile>RerunFileWithListener.xml</suiteXmlFile>
+                                    <suiteXmlFile>src/test/resources/ParallelLogin.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>RerunFileWithListener</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.5.3</version>
+                            <configuration>
+                                <suiteXmlFiles>
+                                    <suiteXmlFile>src/test/resources/RerunFileWithListener.xml</suiteXmlFile>
                                 </suiteXmlFiles>
                             </configuration>
                         </plugin>

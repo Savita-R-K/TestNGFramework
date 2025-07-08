@@ -7,8 +7,7 @@ import testComponents.BaseTest;
 
 public class DependencyTest extends BaseTest{
 
-    String username = "savitaravindra57@gmail.com";
-    String password = "Pass@123";
+
     String productName = "ZARA COAT 3";
 
     @Test
@@ -17,7 +16,7 @@ public class DependencyTest extends BaseTest{
         String confirmationMsg = "THANKYOU FOR THE ORDER.";
 
         //login using username and password and navigate to product page
-        ProductPage productPage = landingPage.login(username, password);
+        ProductPage productPage = landingPage.login(getProp("username"), getProp("password"));
 
         //add product to cart, verify alert
         Thread.sleep(3000);
@@ -46,7 +45,7 @@ public class DependencyTest extends BaseTest{
     public void orderHistory(){
 
         //login using username and password and navigate to product page
-        ProductPage productPage = landingPage.login(username, password);
+        ProductPage productPage = landingPage.login(getProp("username"), getProp("password"));
 
         //navigate to orders page
         MyOrdersPage myOrdersPage=productPage.navigateToMyOrdersPage();

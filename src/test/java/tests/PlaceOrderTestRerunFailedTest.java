@@ -10,14 +10,12 @@ public class PlaceOrderTestRerunFailedTest extends BaseTest {
 
     @Test
     public void placeOrder() throws InterruptedException {
-        String username = "savitaravindra57@gmail.com";
-        String password = "Pass@123";
         String productName = "IPHONE 13 PRO";
         String countryName = "India";
         String confirmationMsg = "THANKYOU FOR THE ORDER.";
 
         //login using username and password and navigate to product page
-        ProductPage productPage = landingPage.login(username, password);
+        ProductPage productPage = landingPage.login(getProp("username"), getProp("password"));
 
         //add product to cart, verify alert
         Thread.sleep(3000);
@@ -44,18 +42,16 @@ public class PlaceOrderTestRerunFailedTest extends BaseTest {
 
     @Test(retryAnalyzer = RerunOnTestFailure.class)
     public void invalidProduct() throws InterruptedException {
-        String username = "savitaravindra57@gmail.com";
-        String password = "Pass@123";
         String productName = "IPHONE";
         String countryName = "India";
         String confirmationMsg = "THANKYOU FOR THE ORDER.";
 
 
         //login using username and password and navigate to product page
-        ProductPage productPage = landingPage.login(username, password);
+        ProductPage productPage = landingPage.login(getProp("username"), getProp("password"));
 
         //add product to cart, verify alert
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         Assert.assertEquals(productPage.addProductToCart(productName), "Product Added To Cart");
 
         //navigate to cart page
