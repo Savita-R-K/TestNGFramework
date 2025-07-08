@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="RerunFailedTests" verbose="1">
+<!--    listeners=helps take screenshots on test failure-->
+<!--    also helps rerun failed test as per defined in the @Test annotation(retry analyzer)-->
+    <listeners>
+        <listener class-name="testComponents.Listeners"/>
+    </listeners>
+    <test name="PlaceOrder">
+        <classes>
+            <class name="tests.PlaceOrderTestRerunFailedTest"/>
+        </classes>
+    </test>
+</suite>
