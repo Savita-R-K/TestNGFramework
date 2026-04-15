@@ -14,7 +14,7 @@ public class LoginTest extends BaseTest {
         //login using username and password and navigate to product page
         ProductPage productPage = landingPage.login(getProp("username"), "IncorrectPassword");
 
-        Assert.assertEquals(productPage.getToastMessage(),"Incorrect email or password.");
+        Assert.assertEquals(productPage.getToastMessage(),"Incorrect email and password.");
 
     }
     @Test

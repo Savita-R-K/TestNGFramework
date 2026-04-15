@@ -7,7 +7,6 @@ import testComponents.BaseTest;
 
 public class DependencyTest extends BaseTest{
 
-
     String productName = "ZARA COAT 3";
 
     @Test
