@@ -13,7 +13,7 @@ import java.util.List;
 
 public class JSONAsDataProvider extends BaseTest {
 
-    @Test(dataProvider = "getData", groups = "dataProvider")
+    @Test(dataProvider = "getData", groups = {"demo","dataProvider"})
     public void placeOrderAndVerifyHistory(HashMap<String, String> inputMap) throws InterruptedException {
         String countryName = "India";
 

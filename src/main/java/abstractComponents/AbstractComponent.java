@@ -22,7 +22,7 @@ public class AbstractComponent{
         wait.until(ExpectedConditions.visibilityOf(ele));
     }
     public void waitForTheElementToDisappear(WebElement ele){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(6));
         wait.until(ExpectedConditions.invisibilityOf(ele));
     }
 

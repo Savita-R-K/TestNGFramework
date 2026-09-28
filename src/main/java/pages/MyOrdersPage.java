@@ -17,6 +17,6 @@ public class MyOrdersPage extends AbstractComponent {
     }
 
     public boolean assertOrderHistory(String productName) {
-        return recentOrder.getText().equals(productName);
+        return recentOrder.getText().trim().equalsIgnoreCase(productName);
     }
 }

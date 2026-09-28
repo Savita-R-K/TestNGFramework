@@ -9,7 +9,7 @@ public class DependencyTest extends BaseTest{
 
     String productName = "ZARA COAT 3";
 
-    @Test
+    @Test(groups = "demo")
     public void placeOrder() throws InterruptedException {
         String countryName = "India";
         String confirmationMsg = "THANKYOU FOR THE ORDER.";

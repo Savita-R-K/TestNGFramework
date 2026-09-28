@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,9 +27,8 @@ import java.util.Iterator;
 public class ExcelFileDownloadAndUpload {
     DataFormatter formatter=new DataFormatter();
 
-    @Test
+    @Test(groups = "demo")
     public void downloadAndUpload() throws InterruptedException, IOException {
-
         WebDriver driver=new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/upload-download-test/");
         driver.manage().window().maximize();
@@ -43,7 +43,8 @@ public class ExcelFileDownloadAndUpload {
         //data to be changed
         String fruitName="Apple";
         String priceValue="400";
-        String filePath="C:/Users/280679/Downloads/download.xlsx";
+        String filePath=System.getProperty("user.home")
+                + File.separator + "Downloads/download.xlsx";
 
         //EDIT DATA
         int priceColNum=getColNum(filePath,"price");

@@ -8,7 +8,7 @@ import testComponents.RerunOnTestFailure;
 
 public class PlaceOrderTestRerunFailedTest extends BaseTest {
 
-    @Test
+    @Test(groups = "demo")
     public void placeOrder() throws InterruptedException {
         String productName = "IPHONE 13 PRO";
         String countryName = "India";
@@ -40,7 +40,7 @@ public class PlaceOrderTestRerunFailedTest extends BaseTest {
         Assert.assertEquals(confirmationPage.assertMsg(), confirmationMsg);
     }
 
-    @Test(retryAnalyzer = RerunOnTestFailure.class)
+    @Test(groups = "demo", retryAnalyzer = RerunOnTestFailure.class)
     public void invalidProduct() throws InterruptedException {
         String productName = "IPHONE";
         String countryName = "India";

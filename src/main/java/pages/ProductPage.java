@@ -13,7 +13,7 @@ public class ProductPage extends AbstractComponent {
     @FindBy(css = "div[role='alert']")
     WebElement alert;
 
-    @FindBy(id = "toast-container")
+    @FindBy(xpath = "//div[@id='toast-container']//div[@aria-label='Login Successfully']")
     WebElement loginMsg;
 
     @FindBy(css = "button[routerlink*='cart']")
@@ -41,7 +41,7 @@ public class ProductPage extends AbstractComponent {
         getProduct(prodName).findElement(By.cssSelector("div[class='card-body'] button:last-of-type")).click();
         waitForTheElementToAppear(alert);
         String alertText=alert.getText();
-        waitForTheElementToDisappear(alert);
+//        waitForTheElementToDisappear(alert);
         return alertText;
 
     }

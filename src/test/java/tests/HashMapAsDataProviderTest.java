@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class HashMapAsDataProviderTest extends BaseTest{
 
-    @Test(dataProvider = "getData",groups = "dataProvider")
+    @Test(dataProvider = "getData",groups = {"demo","dataProvider"})
     public void placeOrderAndVerifyHistory(HashMap<String,String> inputMap) throws InterruptedException {
         String countryName = "India";
 

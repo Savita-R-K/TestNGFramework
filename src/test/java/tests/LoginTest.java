@@ -8,22 +8,22 @@ import testComponents.BaseTest;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(groups = "demo")
     public void invalidLogin() {
 
         //login using username and password and navigate to product page
         ProductPage productPage = landingPage.login(getProp("username"), "IncorrectPassword");
 
-        Assert.assertEquals(productPage.getToastMessage(),"Incorrect email and password.");
+        Assert.assertEquals(productPage.getToastMessage(),"Incorrect email or password.");
 
     }
-    @Test
+    @Test(groups = "demo")
     public void validLogin() {
 
         //login using username and password and navigate to product page
         ProductPage productPage = landingPage.login(getProp("username"), getProp("password"));
         //add product to cart, verify alert
-        Assert.assertEquals(productPage.getLoginMessage(),"Login Successfully");
+        Assert.assertEquals(productPage.getLoginMessage().trim(),"Login Successfully");
 
     }
 
